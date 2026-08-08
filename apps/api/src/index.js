@@ -14,7 +14,14 @@ const paymentsRoutes = require('./routes/payments.routes');
 const app = express();
 
 app.use(helmet());
-app.use(cors({ origin: "*" }));
+app.use(cors({
+    origin: [
+        'https://childcare-clinic-app.netlify.app',
+        'http://localhost:3000',
+        'http://127.0.0.1:5500'
+    ],
+    credentials: true
+}));
 app.use(express.json());
 
 app.get('/health', (req, res) => res.json({ ok: true }));
