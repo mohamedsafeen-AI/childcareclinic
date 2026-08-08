@@ -1,4 +1,4 @@
-const API_BASE = 'https://childcareclinic.vercel.app';
+const API_BASE = 'https://childcareclinic.vercel.app/api';
 
 export async function apiFetch(endpoint, options = {}) {
     const token = localStorage.getItem('token');
