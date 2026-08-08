@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Child Care Clinic — Premium multi-specialty paediatric hospital management platform." />
+  <title>Child Care Clinic · Hospital Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- App Shell -->
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Child Care Clinic</div>
+          <div class="brand-sub">Multi-Specialty Hospital</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <button class="nav-link is-active" data-route="dashboard">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-link" data-route="booking">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+          <span>Book Appointment</span>
+        </button>
+        <button class="nav-link" data-route="children">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Children</span>
+        </button>
+        <button class="nav-link" data-route="vaccinations">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a2 2 0 0 0-4 0v4"/><path d="M10 9h4"/><path d="M12 2v3"/><path d="M17 11a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2h10z"/><path d="M10 11v7"/><path d="M14 11v7"/><path d="M8 21h8"/><path d="M6 11v7"/><path d="M18 11v7"/></svg>
+          <span>Vaccinations</span>
+        </button>
+<button class="nav-link" data-route="visits">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>
+          <span>Visit History</span>
+        </button>
+        <button class="nav-link" data-route="billing">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <span>Billing</span>
+        </button>
+        <button class="nav-link" data-route="support">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+          <span>Contact / Support</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="sidebar-card">
+          <div class="sidebar-card-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <div class="sidebar-card-title">24/7 Emergency</div>
+            <div class="sidebar-card-sub">+91 98039 20203</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Backdrop (mobile) -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- Main Column -->
+    <div class="main-col">
+
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-inner">
+          <button class="icon-btn sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+
+          <div class="topbar-title">
+            <div class="topbar-heading" id="topbar-heading">Dashboard</div>
+            <div class="topbar-date" id="topbar-date"></div>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="topbar-search">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" id="global-search" placeholder="Search patients, records…" aria-label="Global search" />
+            </div>
+
+            <button class="icon-btn notif-btn" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="notif-dot"></span>
+            </button>
+
+            <button class="btn btn-primary btn-sm" data-route-jump="booking">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Book Appointment
+            </button>
+
+            <div class="profile">
+              <div class="profile-avatar">Dr</div>
+              <div class="profile-meta">
+                <div class="profile-name">Patient Portal</div>
+                <div class="profile-role">Premium Member</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="app-main">
+
+        <!-- ============ DASHBOARD ============ -->
+        <section class="page" id="page-dashboard" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Dashboard</h1>
+              <p class="page-sub">Welcome back — here's your hospital overview at a glance.</p>
+            </div>
+          </div>
+
+          <!-- KPI Row -->
+          <div class="kpi-grid">
+            <div class="kpi-card reveal">
+              <div class="kpi-icon teal">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="kpi-meta">
+                <div class="kpi-label">Total Children</div>
+                <div class="kpi-value" id="kpi-children">0</div>
+              </div>
+              <div class="kpi-trend up">Live</div>
+            </div>
+
+<div class="kpi-card reveal">
+              <div class="kpi-icon blue">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="kpi-meta">
+                <div class="kpi-label">Total Appointments</div>
+                <div class="kpi-value" id="kpi-appointments">0</div>
+              </div>
+              <div class="kpi-trend up">Scheduled</div>
+            </div>
+
+</div>
+
+          <!-- Charts row -->
+          <div class="chart-grid">
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Appointment Overview</h2>
+                  <p class="card-desc">Weekly consultation trend.</p>
+                </div>
+              </div>
+              <canvas id="trend-chart" class="chart-canvas" aria-label="Appointment trend chart"></canvas>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Status Distribution</h2>
+                  <p class="card-desc">Appointment status mix.</p>
+                </div>
+              </div>
+              <canvas id="donut-chart" class="chart-canvas" aria-label="Appointment status donut chart"></canvas>
+              <div class="chart-legend">
+                <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#0d9488"></span>Scheduled</div>
+                <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#0284c7"></span>Completed</div>
+                <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#d97706"></span>Pending</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview row -->
+          <div class="grid grid-3-2">
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Token Status</h2>
+                  <p class="card-desc">Live queue status from the backend.</p>
+                </div>
+                <div class="token-pill" id="token-status">—</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value" id="token-status-value">—</div>
+                <div class="metric-label">Current status</div>
+              </div>
+              <div class="card-divider"></div>
+              <div class="quick-row">
+                <button class="btn btn-primary" data-route-jump="booking">Book Now</button>
+                <button class="btn btn-soft" data-route-jump="children">Manage Children</button>
+              </div>
+              <p class="muted quick-note">For best security, all writes go through the secure Node API.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Department Summary</h2>
+                  <p class="card-desc">Activity across specialties.</p>
+                </div>
+              </div>
+              <div class="dept-list" id="dept-summary">
+                <div class="dept-item">
+                  <div class="dept-info"><span class="dept-dot blue"></span><span>Paediatrics</span></div>
+                  <div class="dept-bar"><span style="width:78%"></span></div>
+                  <div class="dept-num">78%</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info"><span class="dept-dot teal"></span><span>Immunization</span></div>
+                  <div class="dept-bar"><span style="width:64%"></span></div>
+                  <div class="dept-num">64%</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info"><span class="dept-dot violet"></span><span>General Consults</span></div>
+                  <div class="dept-bar"><span style="width:52%"></span></div>
+                  <div class="dept-num">52%</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info"><span class="dept-dot amber"></span><span>Follow-ups</span></div>
+                  <div class="dept-bar"><span style="width:38%"></span></div>
+                  <div class="dept-num">38%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Appointments -->
+          <div class="card card-table reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Upcoming Appointments</h2>
+                <p class="card-desc">Your scheduled consultations across all children.</p>
+              </div>
+              <div class="card-actions">
+                <div class="search-box">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="search" id="appointments-search" placeholder="Search appointments…" />
+                </div>
+                <button class="btn btn-soft btn-sm" id="refresh-appointments">Refresh</button>
+              </div>
+            </div>
+
+            <div class="filter-chips" id="appointments-filters">
+              <button class="chip is-active" data-filter="all">All</button>
+              <button class="chip" data-filter="scheduled">Scheduled</button>
+              <button class="chip" data-filter="completed">Completed</button>
+              <button class="chip" data-filter="paid">Paid</button>
+              <button class="chip" data-filter="pending">Pending</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="table" id="appointments-table" data-table="appointments" aria-label="Upcoming appointments">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th class="sortable" data-sort="name">Name<span class="sort-indicator">↕</span></th>
+                    <th class="sortable" data-sort="date">Date<span class="sort-indicator">↕</span></th>
+                    <th class="sortable" data-sort="time">Time<span class="sort-indicator">↕</span></th>
+                    <th class="sortable" data-sort="status">Status<span class="sort-indicator">↕</span></th>
+                    <th>Reason</th>
+                    <th class="sortable" data-sort="payment">Payment<span class="sort-indicator">↕</span></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="appointments-table-body">
+                  <tr><td colspan="8"><div class="skeleton-row skeleton"></div><div class="skeleton-row skeleton"></div><div class="skeleton-row skeleton"></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-foot">
+              <span class="results-count" id="appointments-count">0 records</span>
+              <span class="pagination" id="appointments-pagination" data-pagination="appointments"></span>
+              <span class="muted">Payment badges update instantly.</span>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="card reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Recent Activity</h2>
+                <p class="card-desc">Latest updates from your care timeline.</p>
+              </div>
+            </div>
+            <div class="timeline" id="activity-timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot teal pulse-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Welcome to Child Care Clinic</div>
+                  <div class="timeline-meta">Your care journey starts here.</div>
+                </div>
+                <div class="timeline-time">Now</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ BOOKING ============ -->
+        <section class="page hidden" id="page-booking" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Appointment Booking</h1>
+              <p class="page-sub">Schedule a consultation with a paediatric specialist.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-2-1">
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">New Appointment</h2>
+                  <p class="card-desc">Fill in the details to confirm your booking.</p>
+                </div>
+              </div>
+              <form id="booking-form" class="form-grid" novalidate>
+                <div class="field">
+                  <select name="child_name" id="booking-child" required>
+                    <option value="" selected disabled hidden></option>
+                  </select>
+                  <label class="label" for="booking-child">Select Child</label>
+                </div>
+
+                <div class="field">
+                 <input type="date" name="appointment_date" id="booking-date" required />
+                  <label class="label" for="booking-date">Date</label>
+                </div>
+
+                <div class="field">
+                  <input type="time" name="appointment_time" id="booking-time" required />
+                  <label class="label" for="booking-time">Time</label>
+                </div>
+
+                <div class="field">
+                  <input type="text" id="booking-doctor" placeholder="E.g., Dr. Arun" required />
+                  <label class="label" for="booking-doctor">Doctor Name</label>
+                </div>
+
+                <div class="field field-span">
+                  <textarea id="booking-reason" rows="4" placeholder="E.g., fever, vaccination, routine check"></textarea>
+                  <label class="label" for="booking-reason">Reason for Visit (optional)</label>
+                </div>
+
+                <div class="row gap form-actions">
+                  <button class="btn btn-primary" type="submit">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                    Confirm Booking
+                  </button>
+                  <button class="btn btn-soft" type="button" id="booking-load-tomorrow">Tomorrow</button>
+                </div>
+
+                <div class="form-status" id="booking-status" aria-live="polite"></div>
+              </form>
+            </div>
+
+            <div class="side-stack">
+              <div class="card card-info reveal">
+                <div class="card-header">
+                  <h2 class="card-title">Consultation Info</h2>
+                </div>
+                <div class="info-list">
+                  <div class="info-item">
+                    <div class="info-icon teal"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a2 2 0 0 0-4 0v4"/><path d="M10 9h4"/><path d="M17 11a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2h10z"/></svg></div>
+                    <div><div class="info-label">Consultation Fee</div><div class="info-value">₹250 — ₹500</div></div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-icon blue"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="16" y1="14" x2="12" y2="12"/></svg></div>
+                    <div><div class="info-label">Timings</div><div class="info-value">Morning · Evening</div></div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-icon violet"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4.5v5.6c0 4.6-3.2 7.5-7 8.9-3.8-1.4-7-4.3-7-8.9V6.5z"/></svg></div>
+                    <div><div class="info-label">Secure Payments</div><div class="info-value">UPI QR · Verified</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CHILDREN ============ -->
+        <section class="page hidden" id="page-children" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Child Profiles</h1>
+              <p class="page-sub">Manage health records for every child in your care.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-2-1">
+            <div class="card reveal">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Add Child</h2>
+                  <p class="card-desc">Create a new profile with essential health details.</p>
+                </div>
+              </div>
+              <form id="child-create-form" class="form-grid" novalidate>
+                <div class="field field-span">
+                  <input type="text" id="child-name" required />
+                  <label class="label" for="child-name">Full Name</label>
+                </div>
+
+                <div class="field">
+                  <input type="date" id="child-dob" required />
+                  <label class="label" for="child-dob">Date of Birth</label>
+                </div>
+
+                <div class="field">
+                  <input type="text" id="child-blood" placeholder="E.g., A+" />
+                  <label class="label" for="child-blood">Blood Group</label>
+                </div>
+
+                <div class="field field-span">
+                  <textarea id="child-concerns" rows="3" placeholder="Allergies, conditions, notes…"></textarea>
+                  <label class="label" for="child-concerns">Health Concerns</label>
+                </div>
+
+                <div class="row gap form-actions">
+                  <button class="btn btn-primary" type="submit">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Add Child
+                  </button>
+                </div>
+
+                <div class="form-status" id="child-create-status" aria-live="polite"></div>
+              </form>
+            </div>
+
+            <div class="side-stack">
+              <div class="card card-info reveal">
+                <div class="card-header">
+                  <h2 class="card-title">Why profiles matter</h2>
+                </div>
+                <div class="info-list">
+                  <div class="info-item">
+                    <div class="info-icon teal"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                    <div><div class="info-label">Track Vaccinations</div><div class="info-value">Stay on schedule</div></div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-icon blue"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <div><div class="info-label">Health Notes</div><div class="info-value">Allergies &amp; concerns</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-table reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Your Children</h2>
+                <p class="card-desc">All registered child profiles in one place.</p>
+              </div>
+              <div class="card-actions">
+                <div class="search-box">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="search" id="children-search" placeholder="Search children…" />
+                </div>
+                <button class="btn btn-soft btn-sm" id="refresh-children">Refresh</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Blood</th>
+                    <th>Concerns</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="children-table">
+                  <tr><td colspan="5"><div class="skeleton-row skeleton"></div><div class="skeleton-row skeleton"></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-foot">
+              <span class="results-count" id="children-count">0 records</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ VACCINATIONS ============ -->
+        <section class="page hidden" id="page-vaccinations" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Vaccination Tracker</h1>
+              <p class="page-sub">Immunization schedule for every child.</p>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">View Schedule</h2>
+                <p class="card-desc">Select a child to load their vaccination records.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <select id="vacc-child" required>
+                  <option value="" selected disabled hidden></option>
+                </select>
+                <label class="label" for="vacc-child">Select Child</label>
+              </div>
+              <div class="field field-align">
+                <button class="btn btn-primary" id="load-vaccinations">Load Records</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-table reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Vaccinations</h2>
+                <p class="card-desc">Immunization status and due doses.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Vaccine</th>
+                    <th>Dose</th>
+                    <th>Due</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="vacc-table">
+                  <tr>
+                    <td colspan="5"><div class="empty-state"><div class="empty-state-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a2 2 0 0 0-4 0v4"/><path d="M10 9h4"/><path d="M17 11a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2h10z"/><path d="M10 11v7"/><path d="M14 11v7"/><path d="M8 21h8"/></svg></div><div class="empty-state-title">Select a child to view records</div><div class="empty-state-sub">Load a vaccination schedule to get started.</div></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ VISITS ============ -->
+        <section class="page hidden" id="page-visits" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Visit History</h1>
+              <p class="page-sub">Complete consultation history for your children.</p>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Load History</h2>
+                <p class="card-desc">Select a child to view their past visits.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label class="label" for="visits-child">Select Child</label>
+                <select id="visits-child" required>
+                  <option value="">Loading…</option>
+                </select>
+              </div>
+              <div class="field field-align">
+                <button class="btn btn-primary" id="load-visits">Load History</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-table reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Past Visits</h2>
+                <p class="card-desc">Historical appointment records.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Doctor</th>
+                    <th>Reason for visit</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody id="visits-table">
+                  <tr><td colspan="4"><div class="empty-state"><div class="empty-state-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg></div><div class="empty-state-title">Select a child to view visit history</div><div class="empty-state-sub">Past consultation records will appear here.</div></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+<!-- ============ BILLING ============ -->
+        <section class="page hidden" id="page-billing" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Billing</h1>
+              <p class="page-sub">Manage patient invoices, track payments, and download receipts.</p>
+            </div>
+          </div>
+
+          <!-- Billing summary strip -->
+          <div class="billing-summary">
+            <div class="billing-summary-card">
+              <div class="billing-summary-label">Total Billed</div>
+              <div class="billing-summary-value" id="billing-total">₹0</div>
+            </div>
+            <div class="billing-summary-card paid">
+              <div class="billing-summary-label">Paid</div>
+              <div class="billing-summary-value" id="billing-paid">0</div>
+            </div>
+            <div class="billing-summary-card pending">
+              <div class="billing-summary-label">Pending</div>
+              <div class="billing-summary-value" id="billing-pending">0</div>
+            </div>
+          </div>
+
+          <div class="card card-table reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Invoices &amp; Records</h2>
+                <p class="card-desc">All patient bills and their payment status.</p>
+              </div>
+              <div class="card-actions">
+                <div class="search-box">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="search" id="billing-search" placeholder="Search by patient name…" />
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-chips" id="billing-filters">
+              <button class="chip is-active" data-filter="all">All</button>
+              <button class="chip" data-filter="paid">Paid</button>
+              <button class="chip" data-filter="pending">Pending</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="table" id="billing-table" aria-label="Patient invoices and bills">
+<thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Appointment ID</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="billing-table-body">
+                  <tr><td colspan="7"><div class="skeleton-row skeleton"></div><div class="skeleton-row skeleton"></div><div class="skeleton-row skeleton"></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-foot">
+              <span class="results-count" id="billing-count">0 bills</span>
+              <span class="muted">Billing updates automatically when a payment completes.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SUPPORT ============ -->
+        <section class="page hidden" id="page-support" data-page>
+          <div class="page-head">
+            <div>
+              <h1 class="page-title">Contact / Support</h1>
+              <p class="page-sub">Reach the hospital team or find your way to the clinic.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="card card-spotlight reveal">
+              <div class="card-header">
+                <h2 class="card-title">Clinic Details</h2>
+              </div>
+              <div class="spotlight-body">
+                <div class="spot-row">
+                  <div class="spot-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                  <div><strong>Address:</strong> Child Care Clinic, 20/14, Opp. to C.S.I Church, North Street, Kilakarai, Ramanathapuram-623517.</div>
+                </div>
+                <div class="spot-row">
+                  <div class="spot-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                  <div><strong>Phone:</strong> 04567-243111 / +91 98039 20203</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-spotlight reveal">
+              <div class="card-header">
+                <h2 class="card-title">Doctor Info</h2>
+              </div>
+              <div class="spotlight-body">
+                <div class="doctor-name">Dr. Muhammed Hasheem <span>M.B.B.S., M.D.</span></div>
+                <div class="doctor-role">Paediatric Consultant</div>
+                <div class="hours-block">
+                  <div class="hours-title">Consulting Hours</div>
+                  <div class="hours-row"><span>Morning</span><strong>11:30 AM — 2:30 PM</strong></div>
+                  <div class="hours-row"><span>Evening</span><strong>7:00 PM — 10:30 PM</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Quick Actions</h2>
+                <p class="card-desc">Reach us instantly on your preferred channel.</p>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <a class="btn btn-whatsapp" href="https://wa.me/919803920203" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+              <a class="btn btn-call" href="tel:+919803920203">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Call Phone
+              </a>
+              <button class="btn btn-copy" onclick="navigator.clipboard.writeText('9803920203'); alert('Phone number copied to clipboard!');">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Phone
+              </button>
+            </div>
+            <div class="map-wrap">
+              <h2 class="map-title">Directions (Google Map)</h2>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.7727466222645!2d78.78212347450084!3d9.235614985721583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b019ba9cd97e0b5%3A0x2e891c26c3d13630!2sChild%20Care%20Clinic%20(Dr.%20Hasheem)!5e1!3m2!1sen!2sin!4v1785507706736!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Clinic location map"></iframe>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PAYMENT MODAL ============ -->
+        <div class="modal-overlay hidden" id="payment-modal">
+          <div class="modal-card">
+            <div class="modal-header">
+              <h2 class="modal-title">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                Pay Appointment Fee
+              </h2>
+              <button class="modal-close" id="payment-modal-close" aria-label="Close">&times;</button>
+            </div>
+
+            <div class="modal-body">
+              <div class="pay-summary">
+                <div class="pay-payee" id="payment-payee">Child Care Clinic</div>
+                <div class="pay-amount" id="payment-amount">₹250</div>
+                <div class="pay-note muted" id="payment-note">Appointment Fee</div>
+              </div>
+
+              <div class="qr-box">
+                  <div id="payment-qr">
+                    <img src="images/mygpayqr.jpeg" alt="Google Pay QR Code" style="max-width: 100%; height: auto;" />
+                  </div>
+                  <div class="muted qr-hint" id="payment-qr-hint">Scan this QR with any UPI app</div>
+                </div>
+
+                <div class="upi-apps">
+                  <a class="upi-app-btn gpay" id="pay-gpay" href="#" target="_blank" rel="noopener">Google Pay</a>
+                  <a class="upi-app-btn phonepe" id="pay-phonepe" href="#" target="_blank" rel="noopener">PhonePe</a>
+                  <a class="upi-app-btn paytm" id="pay-paytm" href="#" target="_blank" rel="noopener">Paytm</a>
+                </div>
+
+                <hr class="divider" />
+                <div class="txn-help" id="payment-txn-help" style="display:none;">After paying, enter the <strong>UPI Transaction ID</strong> (e.g. <code>123456789012</code>) and optional reference, then verify.</div>
+
+                <form id="payment-verify-form" style="display:none;">
+                  <label class="field">
+                    <span class="label">UPI Transaction ID / UTR</span>
+                    <input type="text" id="payment-txn-id" placeholder="e.g. 412345678901" />
+                  </label>
+
+                  <label class="field">
+                    <span class="label">Reference Number (optional)</span>
+                    <input type="text" id="payment-txn-ref" placeholder="e.g. Appointment reference / remarks" />
+                  </label>
+
+                  <div class="row gap form-actions">
+                    <button class="btn btn-primary" type="submit" id="payment-verify-btn">Verify &amp; Confirm</button>
+                    <button class="btn btn-soft" type="button" id="payment-skip-btn">Pay Later</button>
+                  </div>
+                </form>
+
+                <div class="row gap form-actions" id="payment-auto-actions">
+                  <button class="btn btn-primary" type="button" id="payment-simulate-btn">Simulate Payment (Dev)</button>
+                  <button class="btn btn-soft" type="button" id="payment-skip-btn-2">Pay Later</button>
+                </div>
+
+                <div class="form-status" id="payment-status" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <div class="brand-mark small" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <span>Child Care Clinic — Multi-Specialty Hospital Platform</span>
+            </div>
+            <div class="muted">© <span id="year-footer"></span> Child Care Clinic · All rights reserved</div>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- QR Code library (lightweight, renders QR to canvas) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script type="module" src="./js/api.js"></script>
+  <script type="module" src="./js/ui/router.js"></script>
+  <script type="module" src="./js/ui/dashboard.js"></script>
+  <script type="module" src="./js/ui/booking.js"></script>
+  <script type="module" src="./js/ui/children.js"></script>
+  <script type="module" src="./js/ui/vaccinations.js"></script>
+<script type="module" src="./js/ui/visits.js"></script>
+  <script type="module" src="./js/ui/billing.js"></script>
+  <script type="module" src="./js/ui/support.js"></script>
+  <script type="module" src="./js/ui/payment.js"></script>
+  <script type="module" src="./js/enhancements.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
+
