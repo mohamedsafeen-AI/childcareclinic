@@ -13,5 +13,5 @@ import './ui/payment.js';
 //
 // If you don't have auth wired yet, backend calls will fail with 401.
 
-window.API_BASE_URL = window.API_BASE_URL || 'http://localhost:3000/api';
+window.API_BASE_URL = window.API_BASE_URL || 'https://childcareclinic.vercel.app';
 
