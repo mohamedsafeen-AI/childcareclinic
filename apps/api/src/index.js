@@ -17,6 +17,7 @@ app.use(helmet());
 app.use(cors({
     origin: [
         'https://childcare-clinic-app.netlify.app',
+        'https://safeen-childcare-clinic-app.netlify.app',
         'http://localhost:3000',
         'http://127.0.0.1:5500'
     ],
