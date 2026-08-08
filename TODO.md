@@ -1,20 +1,24 @@
-# TODO — Fix blank QR code display in the payment modal
+# Child Care Clinic — Frontend Responsive Redesign
 
-## Goal
-Make the payment modal dynamically render a scannable QR code from the payment session's `upi_uri`, instead of relying on a static (possibly blank) image.
+## Task
+Redesign and optimize the entire frontend UI to be 100% fully responsive across mobile, tablet, laptop, and large desktop viewports, while preserving the existing medical color scheme, typography, and interactive features.
 
-## Root causes
-- `payment.js` no longer generated a dynamic QR; it only set UPI deep links and relied on a static `images/mygpayqr.jpeg` in the modal HTML.
-- No dynamic QR rendering was wired to the fetched `session.upi_uri`.
+## Status: COMPLETE
 
-## Plan
-- [x] Analyze `payment.js`, `index.html`, `payments.routes.js`, `paymentGateway.js`, CSS
-- [x] Re-add a dynamic `renderQr(upiUri)` in `apps/web/js/ui/payment.js`:
-  - Use global `QRCode` (qrcodejs) to render to canvas when available
-  - Lazy-load qrcodejs if missing, then re-render
-  - Fallback: encode `upiUri` via an external QR image API if the library cannot load
-- [x] Call `renderQr(res.session.upi_uri)` after creating the session in `__openPaymentModal`
-- [x] Ensure the modal `#payment-qr` container is cleared so the static image is replaced by the dynamic QR
-- [x] CSS already styles `#payment-qr canvas` and `img` (180px, centered, white frame)
-- [x] Verify changes
+## Steps
 
+### 1. HTML changes (`apps/web/index.html`)
+- [x] Wrapped the "Book Appointment" button's text in a `<span class="btn-label">` so CSS can hide just the label on very small screens (keeps the icon).
+
+### 2. CSS responsive system rewrite (`apps/web/css/styles.css`)
+- [x] Added a reusable `.app-main` max-width wrapper (`max-width: 1560px; margin: 0 auto;`) for desktop alignment.
+- [x] Fixed `.search-box input` min-width to prevent overflow on small screens (`min-width:0; width:100%; max-width:220px`).
+- [x] In the `≤1023px` (mobile/tablet) block: changed `kpi-grid` to **2 columns** (tablet), adjusted `billing-summary` columns, kept forms 2-col on tablet.
+- [x] Added a tablet refinement block (`601–1023px`): 2-column KPI/billing grids, adjusted font sizes/spacing/padding for medium touch-screens.
+- [x] Added a compact topbar rule for `<480px`: hides the "Book Appointment" button label (keeps icon), shrinks profile.
+- [x] Added `overflow-x:auto` safety on `.card-header`, `.topbar-actions`, and `.card-actions` for extreme narrow widths.
+- [x] Made chart canvas heights fluid via `clamp(220px, 30vh, 300px)`.
+- [x] Added a `≥1600px` large-desktop refinement: 4-column KPI, wide grids, spacious padding.
+
+### 3. Verify & test
+- [ ] Open `index.html` and visually verify at phone/tablet/laptop/desktop widths.

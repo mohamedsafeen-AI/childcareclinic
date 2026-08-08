@@ -433,21 +433,52 @@ if (key === 'date') { av = a.querySelectorAll('td')[2]?.textContent.trim() || ''
   /* ------------------------------------------------------------------------
      8. Sidebar toggle (mobile)
      ------------------------------------------------------------------------ */
-  function setupSidebarToggle() {
+function setupSidebarToggle() {
     const toggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('app-sidebar');
     const backdrop = document.getElementById('sidebar-backdrop');
     if (!toggle || !sidebar) return;
 
+    const setBodyLock = (locked) => {
+      document.body.classList.toggle('sidebar-open', locked);
+    };
+
     const close = () => {
       sidebar.classList.remove('is-open');
       backdrop?.classList.remove('is-visible');
+      setBodyLock(false);
     };
+
+    const open = () => {
+      sidebar.classList.add('is-open');
+      backdrop?.classList.add('is-visible');
+      setBodyLock(true);
+    };
+
     toggle.addEventListener('click', () => {
-      sidebar.classList.toggle('is-open');
-      backdrop?.classList.toggle('is-visible', sidebar.classList.contains('is-open'));
+      if (sidebar.classList.contains('is-open')) {
+        close();
+      } else {
+        open();
+      }
     });
+
     backdrop?.addEventListener('click', close);
+
+    // Close drawer on Escape key (mobile only)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {
+        close();
+      }
+    });
+
+    // Auto-close when resizing up to desktop (sidebar becomes persistent)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) close();
+    });
+
+    // Expose a helper so router can close the drawer on navigation
+    window.__closeSidebar = close;
   }
 
 /* ------------------------------------------------------------------------

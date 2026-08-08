@@ -96,14 +96,14 @@ function renderTable(bills) {
                 Invoice
             </button>`;
 
-        return `
+return `
             <tr data-bill-status="${isPaid ? 'paid' : 'pending'}">
-                <td><strong>${b.childName}</strong></td>
-                <td><code class="bill-id">${b.appointmentId ? b.appointmentId.slice(0, 8) : '-'}</code></td>
-                <td>${formatDate(b.date)}${b.time ? ' · ' + b.time : ''}</td>
-                <td>${formatCurrency(b.amount)}</td>
-                <td>${payBadge}</td>
-                <td>${invoiceBtn}</td>
+                <td data-label="Patient Name"><strong>${b.childName}</strong></td>
+                <td data-label="Appointment ID"><code class="bill-id">${b.appointmentId ? b.appointmentId.slice(0, 8) : '-'}</code></td>
+                <td data-label="Date">${formatDate(b.date)}${b.time ? ' · ' + b.time : ''}</td>
+                <td data-label="Amount">${formatCurrency(b.amount)}</td>
+                <td data-label="Payment Status">${payBadge}</td>
+                <td data-label="">${invoiceBtn}</td>
             </tr>`;
     }).join('');
 

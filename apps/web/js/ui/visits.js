@@ -76,12 +76,12 @@ export async function loadVisitsPage() {
                             const rawTime = v.appointment_time || v.time || '';
                             const formattedTime = format12Hour(rawTime);
 
-                            return `
+return `
                                 <tr>
-                                    <td>${v.appointment_date || v.date || 'N/A'}</td>
-                                    <td><strong>${v.doctor_name || v.doctorName || v.doctor || 'N/A'}</strong></td>
-                                    <td>${v.reason || v.reason_for_visit || 'Checkup'}</td>
-                                    <td>${formattedTime}</td>
+                                    <td data-label="Date">${v.appointment_date || v.date || 'N/A'}</td>
+                                    <td data-label="Doctor"><strong>${v.doctor_name || v.doctorName || v.doctor || 'N/A'}</strong></td>
+                                    <td data-label="Reason for Visit">${v.reason || v.reason_for_visit || 'Checkup'}</td>
+                                    <td data-label="Time">${formattedTime}</td>
                                 </tr>
                             `;
                         }).join('');

@@ -60,13 +60,13 @@ export async function loadVaccinationsPage() {
                 const uniqueKey = `${childId}-${v.id}`;
                 return `
                     <tr id="row-${uniqueKey}">
-                        <td><strong>${v.name}</strong></td>
-                        <td><span class="badge-status scheduled">${v.dose}</span></td>
-                        <td>${v.due}</td>
-                        <td id="status-${uniqueKey}">
+                        <td data-label="Vaccine"><strong>${v.name}</strong></td>
+                        <td data-label="Dose"><span class="badge-status scheduled">${v.dose}</span></td>
+                        <td data-label="Due">${v.due}</td>
+                        <td data-label="Status" id="status-${uniqueKey}">
                             <span class="badge-status pending">Pending</span>
                         </td>
-                        <td>
+                        <td data-label="Action">
                             <button type="button" onclick="window.markDone('${uniqueKey}')" class="btn-small" style="background: var(--gradient-success); color: #fff; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-weight: 600;">Done</button>
                         </td>
                     </tr>

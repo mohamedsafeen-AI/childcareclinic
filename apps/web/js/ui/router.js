@@ -2,6 +2,9 @@ const navButtons = document.querySelectorAll('[data-route]');
 const pages = document.querySelectorAll('[data-page]');
 
 function showPage(route) {
+  // Close the mobile (off-canvas) sidebar drawer when navigating
+  if (window.__closeSidebar) window.__closeSidebar();
+
   pages.forEach(p => {
     const id = p.id || '';
     const isTarget = id === `page-${route}`;

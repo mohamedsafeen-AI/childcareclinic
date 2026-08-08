@@ -13,11 +13,11 @@ async function loadChildrenTable() {
 
     tbody.innerHTML = children.map(c => `
       <tr>
-        <td><strong>${c.full_name}</strong></td>
-        <td>${c.dob}</td>
-        <td>${c.blood_group || '—'}</td>
-        <td>${(c.health_concerns || '—').slice(0, 40)}</td>
-        <td>
+        <td data-label="Name"><strong>${c.full_name}</strong></td>
+        <td data-label="DOB">${c.dob}</td>
+        <td data-label="Blood">${c.blood_group || '—'}</td>
+        <td data-label="Concerns">${(c.health_concerns || '—').slice(0, 40)}</td>
+        <td data-label="">
           <button class="btn-small btn-delete-row" data-delete-child="${c.id}">Delete</button>
         </td>
       </tr>

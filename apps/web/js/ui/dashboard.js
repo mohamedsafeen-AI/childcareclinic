@@ -138,14 +138,14 @@ export async function loadDashboard() {
 
 return `
                         <tr>
-                            <td class="appt-no">${apptNo}</td>
-                            <td><strong>${childName}</strong></td>
-                            <td>${date}</td>
-                            <td data-time="${time}">${time}</td>
-                            <td><span class="badge-status ${statusClass}">${a.status || 'scheduled'}</span></td>
-                            <td>${reason}</td>
-                            <td>${payBadge} ${payBtn}</td>
-                            <td>${deleteBtn}</td>
+                            <td class="appt-no" data-label="S.No">${apptNo}</td>
+                            <td data-label="Name"><strong>${childName}</strong></td>
+                            <td data-label="Date">${date}</td>
+                            <td data-label="Time" data-time="${time}">${time}</td>
+                            <td data-label="Status"><span class="badge-status ${statusClass}">${a.status || 'scheduled'}</span></td>
+                            <td data-label="Reason">${reason}</td>
+<td data-label="Payment">${payBadge} ${payBtn}</td>
+                            <td data-label="Action">${deleteBtn}</td>
                         </tr>
                     `;
                 }).join('');
